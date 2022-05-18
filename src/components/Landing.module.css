@@ -1,0 +1,15 @@
+.landing{
+  width: 100%;
+  padding: 1rem;
+  gap: 1rem;
+}
+@media screen and (min-width:922px) {
+  .landing{
+    padding: 1rem 3rem;
+  }
+}
+@media screen and (min-width:1200px) {
+  .landing{
+    padding: 1rem 7rem;
+  }
+}

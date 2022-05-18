@@ -1,0 +1,100 @@
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  padding:1rem;
+  border-bottom: 1px solid var(--border-color);
+  gap:1rem;
+}
+.container:last-child{
+  border-bottom: none;
+}
+.container:first-child{
+  border-top: 1px solid var(--border-color);
+}
+.index{
+  color: var(--text-color);
+  text-align: start;
+  width:2.5rem;
+}
+.thumb{
+  width: 25px;
+  height: 25px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+.name,.abbreviation{
+  font-weight: bold;
+}
+.name{
+  display: none;
+  width: 7rem;
+  min-width: 7rem;
+  word-break:break-word;
+}
+.abbreviation{
+  margin-left:auto;
+  min-width: 3rem;
+  text-align: start;
+}
+.price{
+  width: 8rem;
+  text-align:end;
+}
+.red,.green{
+  width: 4rem;
+  text-align:end;
+}
+.red{
+  color: red;
+}
+.green{
+  color: green;
+}
+#oneDayChange{
+  display: none;
+}
+#oneWeekChange{
+  display: none;
+}
+.volume {
+  display: none;
+  width: 10rem;
+  text-align:end;
+}
+.marketCap{
+  display: none;
+  width: 10rem;
+  text-align:end;
+}
+
+@media screen and (min-width:576px) {
+  .volume{
+    display: block;
+  }
+}
+@media screen and (min-width:768px) {
+  .title {
+    width: 10rem;
+  }
+  .name{
+    display: block;
+  }
+  .marketCap {
+    display: block;
+  }
+}
+@media screen and (min-width:1200px) {
+  #oneDayChange {
+    display: block;
+  }
+  #oneWeekChange {
+    display: block;
+  }
+}
