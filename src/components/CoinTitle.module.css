@@ -1,97 +1,101 @@
-.container{
+.container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--main-color);
-  padding:1rem;
+  padding: 1rem;
   border-bottom: 1px solid var(--border-color);
-  gap:1rem;
+  gap: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
-.container:last-child{
-  border-bottom: none;
-}
-.index{
+.index {
   color: var(--text-color);
   text-align: start;
-  width:2.5rem;
+  width: 2.5rem;
 }
+
 .title {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.3rem;
 }
-.thumb{
+
+.thumb {
   width: 25px;
   height: 25px;
 }
-.name,.abbreviation{
-  font-weight: bold;
-}
-.name{
-  display: none;
+
+.name {
   width: 7rem;
-  min-width: 7rem;
-  word-break:break-word;
+  display: none;
+  text-align: left;
 }
-.abbreviation{
-  margin-left:auto;
-  min-width: 3rem;
-  text-align: start;
+
+.abbreviation {
+  width: 3rem;
 }
-.price{
+
+.price {
   width: 8rem;
-  text-align:end;
+  text-align: right;
 }
-.red,.green{
+
+.changes{
   width: 4rem;
-  text-align:end;
-}
-.red{
-  color: red;
-}
-.green{
-  color: green;
-}
-#oneDayChange{
+  text-align: right;
   display: none;
 }
-#oneWeekChange{
-  display: none;
+.oneHourchanges{
+  width: 4rem;
+  text-align: right;
 }
+
+
 .volume {
   display: none;
   width: 10rem;
-  text-align:end;
+  text-align: center;
 }
-.marketCap{
+
+.marketCap {
   display: none;
   width: 10rem;
-  text-align:end;
+  text-align: center;
 }
 
 @media screen and (min-width:576px) {
-  .volume{
+  .volume {
     display: block;
   }
 }
+
 @media screen and (min-width:768px) {
   .title {
     width: 10rem;
   }
-  .name{
+
+  .name {
     display: block;
   }
+
   .marketCap {
     display: block;
   }
 }
+
 @media screen and (min-width:1200px) {
   #oneDayChange {
     display: block;
   }
+
   #oneWeekChange {
+    display: block;
+  }
+
+  .changes {
     display: block;
   }
 }

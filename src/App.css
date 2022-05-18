@@ -7,4 +7,5 @@
   background-color: var(--body-color);
   color: var(--text-color);
   min-height: 100vh;
+  padding: 2rem 0;
 }
