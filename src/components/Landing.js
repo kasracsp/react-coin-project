@@ -1,28 +1,22 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 
 import Coin from './Coin'
-import { getCoin } from '../services/api'
 import styles from './Landing.module.css'
 import CoinTitle from './CoinTitle'
 
-const Landing = () => {
-  const [coins,setCoins]=useState([])
+const Landing = ({coins}) => {
+  const [search,setSearch]=useState('')
 
-  useEffect(()=>{
-    const fetchCoins=async ()=>{
-      const data=await getCoin()
-      setCoins(data)
-    }
-    fetchCoins()
-  },[])
+  const filteredCoins=coins.filter(item=>item.name.toLowerCase().includes(search.toLowerCase().trim()))
+  
   return (
     <div className={styles.landing}>
-      <input type="text" placeholder='Search...' className={styles.search}/>
+      <input type="text" placeholder='Search...' className={styles.search} value={search} onChange={event=>setSearch(event.target.value)} />
       <div>
         {coins.length?
           <div className={styles.coins}>
-            <CoinTitle />
-            {coins.map(item=><Coin key={item.id}
+            {filteredCoins.length>0 && <CoinTitle />}
+            {filteredCoins.map(item=><Coin key={item.id}
               index={item.market_cap_rank}
               id={item.id}
               name={item.name}
