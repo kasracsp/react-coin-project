@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import Coin from './Coin'
 import styles from './Landing.module.css'
 import CoinTitle from './CoinTitle'
+import Navbar from '../shared/Navbar'
 
 const Landing = ({coins}) => {
   const [search,setSearch]=useState('')
@@ -11,8 +12,9 @@ const Landing = ({coins}) => {
   
   return (
     <div className={styles.landing}>
+      <Navbar />
       <input type="text" placeholder='Search...' className={styles.search} value={search} onChange={event=>setSearch(event.target.value)} />
-      <div>
+      <div className={styles.coinsWrapper}>
         {coins.length?
           <div className={styles.coins}>
             {filteredCoins.length>0 && <CoinTitle />}

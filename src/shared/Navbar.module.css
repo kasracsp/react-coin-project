@@ -1,0 +1,46 @@
+.navbar{
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--body-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.logo{
+  font-family: 'monoton',serif;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.darkSide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.darkSide span{
+  color: grey;
+  cursor: pointer;
+}
+
+.darkSide span#active{
+  color: rgb(0, 238, 255);
+  text-shadow: 0 0 3px grey;
+}
+.signIn{
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: 0.2s;
+}
+.signIn:hover{
+  color: rgb(0, 238, 255) ;
+  text-shadow: 0 0 3px grey;
+}
