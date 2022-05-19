@@ -26,6 +26,40 @@
   border-radius: .5rem;
   overflow: hidden;
 }
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  padding: 1rem;
+  list-style: none;
+}
+.pagLink{
+  cursor: pointer;
+  padding: .2rem .5rem;
+  border-radius: .2rem;
+  font-weight: bold;
+}
+.pagLink:hover:not(.pagActive){
+  color: rgb(0, 111, 167);
+}
+.pagBtn{
+  cursor: pointer;
+  padding:.2rem .5rem;
+  color: #000;
+  font-size: 1.5rem;
+  border-radius:50%;
+  font-weight: bold;
+  margin: 0 1rem;
+}
+.pagBtn:hover{
+  color: rgb(0, 111, 167);
+}
+.pagActive{
+  color: #fff;
+  background-color: rgb(0, 111, 167);
+  border:1px solid rgb(0, 111, 167);
+}
 @media screen and (min-width:922px) {
   .coinsWrapper{
     padding: 1rem 3rem;
