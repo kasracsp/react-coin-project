@@ -48,6 +48,7 @@
 .red,.green{
   width: 4rem;
   text-align:end;
+  text-shadow:0 0 1px var(--text-color);
 }
 .red{
   color: red;

@@ -1,17 +1,19 @@
 .app{
   width: 100%;
-  --body-color:#f6f6f6;
-  --main-color:#fff;
-  --text-color:#000;
-  --border-color:silver;
+  --body-color:#9ab8ba;
+  --main-color:#ddf7f8;
+  --text-color:#0b1516;
+  --border-color:#045256;
+  --pagBtn-color:#ddf7f8;
   background-color: var(--body-color);
   color: var(--text-color);
   min-height: 100vh;
   padding-bottom: 5rem;
 }
 .app#darkMode{
-    --body-color: rgb(18,18,18);
-    --main-color: rgb(18, 18, 18);
-    --text-color: #fff;
-    --border-color: #f6f6f6;
+  --body-color: #063e41;
+  --main-color: #052a2c;
+  --text-color: #fff;
+  --border-color: #3a6669;
+  --pagBtn-color: #03afb8;
 }
