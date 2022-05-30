@@ -1,13 +1,13 @@
 .navbar{
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem;
   height: 4rem;
   background-color: var(--body-color);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .logo{
   font-family: 'monoton',serif;
@@ -21,7 +21,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
 .darkSide span{
   color: grey;
@@ -49,7 +48,14 @@
   border: 1px solid var(--border-color);
 }
 @media screen and (min-width:576px) {
+  .navbar{
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
   .logo {
     font-size: 1.5rem;
+  }
+  .darkSide {
+    gap:1rem;
   }
 }

@@ -5,7 +5,7 @@ const Currency = ({currency,selectedCurrency,onChangeCurrency,amount,onChangeAmo
 
   return (
     <div className={styles.container}>
-      <input type="number" min={1} className={styles.input} value={amount.toFixed(7)} onChange={onChangeAmount}/>
+      <input type="number" min={1} className={styles.input} value={amount} onChange={onChangeAmount}/>
       <select className={styles.select} value={selectedCurrency} onChange={onChangeCurrency} >
         {currency.map(item=><option key={item} value={item} >{item}</option>)}
       </select>

@@ -3,6 +3,7 @@ import { getCurrency } from '../services/api'
 import Currency from '../shared/Currency'
 import styles from './Converter.module.css'
 import axios from 'axios'
+import Loading from '../shared/Loading'
 
 const Converter = () => {
   const [currency,setCurrency]=useState([])
@@ -23,8 +24,10 @@ const Converter = () => {
 
   useEffect(()=>{
     if(fromcurrency != null && tocurrency != null){
-      axios.get(`https://api.currencyapi.com/v3/latest?apikey=VfGvJGonbxGSBbOaWNOb5GFF5CjV2O3FYNyeHmZU&currencies=${tocurrency}&base_currency=${fromcurrency}`)
+      axios.get(`https://api.currencyapi.com/v3/latest?apikey=${
+process.env.REACT_APP_CURRENCY_API_KEY}&currencies=${tocurrency}&base_currency=${fromcurrency}`)
       .then(response=>setExchangeRate(Object.values(response.data.data)[0].value))
+      .catch(error=>console.log(error))
     }
   },[fromcurrency,tocurrency])
 
@@ -36,7 +39,7 @@ const Converter = () => {
       setToCurrency(Object.keys(response)[0])
       setExchangeRate(Object.values(response)[0].value)
     }
-    fetchCurrency()
+    fetchCurrency().catch(error=>console.log(error))
   },[])
 
   const handleFromAmountChange=(e)=>{
@@ -69,7 +72,7 @@ const Converter = () => {
           onChangeAmount={handleToAmountChange}
         />  
       </div>:
-      <p>loading...</p>
+      <Loading />
       }
       
     </div>

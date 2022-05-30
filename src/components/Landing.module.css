@@ -2,6 +2,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -26,6 +28,10 @@
 .coinsWrapper{
   padding: 1rem;
   width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .coins{
   border: 1px solid var(--border-color);

@@ -13,7 +13,7 @@ const Navbar = () => {
         <span className='material-icons' id={darkmode ? styles.active :''} onClick={changeDarkMode}>
           mode_night
         </span>
-        <Link to='/converter' className={styles.converter}>Converter</Link>
+        <Link to='/converter' className={styles.converter}>Currency Converter</Link>
       </div>
     </div>
   )

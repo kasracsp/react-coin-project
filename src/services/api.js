@@ -10,8 +10,10 @@ const getCoin=async ()=>{
 const BASE_CURRENCY_URL='https://api.currencyapi.com/'
 
 const getCurrency=async ()=>{
-  const currencyResponse=await axios.get(`${BASE_CURRENCY_URL}v3/latest?apikey=VfGvJGonbxGSBbOaWNOb5GFF5CjV2O3FYNyeHmZU`)
-  return currencyResponse.data.data
+  const currencyResponse=await axios.get(`${BASE_CURRENCY_URL}v3/latest?apikey=${
+process.env.REACT_APP_CURRENCY_API_KEY}`) 
+return currencyResponse.data.data
+  
 }
 
 export {getCoin,getCurrency}

@@ -21,7 +21,7 @@ const App = () => {
       const data=await getCoin()
       setCoins(data)
     }
-    fetchCoins()
+    fetchCoins().catch(error=>console.log(error))
   },[])
 
   return (

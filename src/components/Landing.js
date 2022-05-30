@@ -4,6 +4,7 @@ import Coin from './Coin'
 import styles from './Landing.module.css'
 import CoinTitle from './CoinTitle'
 import ReactPaginate from 'react-paginate';
+import Loading from '../shared/Loading';
 
 const Landing = ({coins}) => {
   const [search,setSearch]=useState('')
@@ -69,7 +70,7 @@ const Landing = ({coins}) => {
             />
           }
           </div>:
-          <p>loading</p>
+          <Loading />
         }
       </div>
     </div>
