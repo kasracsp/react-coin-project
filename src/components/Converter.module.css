@@ -1,0 +1,23 @@
+.wrapper{
+  width: 100%;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.intro{
+  font-family: 'monoton', serif;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: normal;
+}

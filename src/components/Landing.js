@@ -3,7 +3,6 @@ import React,{useState, useEffect} from 'react'
 import Coin from './Coin'
 import styles from './Landing.module.css'
 import CoinTitle from './CoinTitle'
-import Navbar from '../shared/Navbar'
 import ReactPaginate from 'react-paginate';
 
 const Landing = ({coins}) => {
@@ -34,7 +33,6 @@ const Landing = ({coins}) => {
   
   return (
     <div className={styles.landing}>
-      <Navbar />
       <input type="text" placeholder='Search...' className={styles.search} value={search} onChange={changeHandler} />
       <div className={styles.coinsWrapper}>
         {coins.length?

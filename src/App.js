@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import Navbar from './shared/Navbar'
 import Landing from './components/Landing'
+import Converter from './components/Converter'
 import './App.css'
 import { getCoin } from './services/api'
 
@@ -25,7 +27,12 @@ const App = () => {
   return (
       <div className='app' id={darkmode ? 'darkMode' : ''}>
         <DarkModeContext.Provider value={{darkmode,changeDarkMode}}>
-          <Landing coins={coins}/>
+          <Navbar />
+          <Routes>
+            <Route path='/Converter' element={<Converter />} />
+            <Route path='/' element={<Landing coins={coins}/>} />
+            <Route path='/*' element={<Navigate to='/' />} />
+          </Routes>
         </DarkModeContext.Provider>
       </div>
   )
