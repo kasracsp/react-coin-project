@@ -59,7 +59,7 @@ process.env.REACT_APP_CURRENCY_API_KEY}&currencies=${tocurrency}&base_currency=$
         <Currency
           currency={currency}
           selectedCurrency={fromcurrency}
-          onChangeCurrency={e=>setFromCurrency(e.target.value)}
+          onChangeCurrency={e=>setFromCurrency(e.target.id)}
           amount={fromAmount}
           onChangeAmount={handleFromAmountChange}
         />
@@ -67,7 +67,7 @@ process.env.REACT_APP_CURRENCY_API_KEY}&currencies=${tocurrency}&base_currency=$
         <Currency
           currency={currency}
           selectedCurrency={tocurrency}
-          onChangeCurrency={e=>setToCurrency(e.target.value)}
+          onChangeCurrency={e=>setToCurrency(e.target.id)}
           amount={toAmount}
           onChangeAmount={handleToAmountChange}
         />  
