@@ -1,5 +1,10 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
+import { Link } from 'react-router-dom';
 
+//context
+import { FavoritesContext } from '../context/FavoritesContextProvider';
+
+//components
 import Coin from './Coin'
 import styles from './Landing.module.css'
 import CoinTitle from './CoinTitle'
@@ -8,6 +13,7 @@ import Loading from '../shared/Loading';
 
 const Landing = ({coins}) => {
   const [search,setSearch]=useState('')
+  const {state}=useContext(FavoritesContext)
 
   const filteredCoins=coins.filter(item=>item.name.toLowerCase().includes(search.toLowerCase().trim()))
 
@@ -34,7 +40,13 @@ const Landing = ({coins}) => {
   
   return (
     <div className={styles.landing}>
-      <input type="text" placeholder='Search...' className={styles.search} value={search} onChange={changeHandler} />
+      <div className={styles.landingNav}>
+        <input type="text" placeholder='Search...' className={styles.search} value={search} onChange={changeHandler} />
+        <Link to='/favorites' className={`${styles.favorite} ${state.fav.length && styles.exist}`}>
+          <span className='material-icons'>star</span>
+          <p>Favorite coins</p>
+        </Link>
+      </div>
       <div className={styles.coinsWrapper}>
         {coins.length?
           <div className={styles.coins}>

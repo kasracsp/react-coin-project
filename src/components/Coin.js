@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Coin.module.css'
 
+//context
+import { FavoritesContext } from '../context/FavoritesContextProvider';
+
+//helper
+import { isInFav } from '../helper/function';
+
 const Coin = (props) => {
-  const {index,name,symbol,image,price,volume,marketCap,priceChangeOneHour,priceChangeOneDay,priceChangeOneWeek}=props
+  const {index,id,name,symbol,image,price,volume,marketCap,priceChangeOneHour,priceChangeOneDay,priceChangeOneWeek}=props
+
+  const {state,dispatch}=useContext(FavoritesContext)
   return (
     <div className={styles.container}>
-      <p className={styles.index}>{index}</p>
+      <div className={styles.numberSection}>
+        <div className={styles.favSection}>
+          <input type="checkbox" id={id} checked={isInFav(state.fav,id)? true : false} onChange={()=>dispatch({type:'ADD_FAV',payload:id})} />
+          <label htmlFor={id} className='material-icons'>star</label>
+        </div>
+        <p className={styles.index}>{index}</p>
+      </div>
       <div className={styles.title}>
         <img src={image} alt={name} className={styles.thumb}/>
         <p className={styles.name}>{name.toUpperCase()}</p>

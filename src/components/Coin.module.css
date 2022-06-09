@@ -12,10 +12,33 @@
 .container:last-child{
   border-bottom: none;
 }
+.numberSection{
+  width: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap:.2rem;
+}
+.favSection{
+  position: relative;
+}
+.favSection input{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  cursor: pointer;
+}
+.favSection input:checked ~ label{
+  color: rgb(255, 217, 0);
+}
+.favSection label{
+  color: grey;
+}
 .index{
   color: var(--text-color);
   text-align: start;
-  width:2.5rem;
 }
 .title {
   display: flex;

@@ -7,10 +7,45 @@
   gap: 1rem;
   margin-top: 2rem;
 }
-.search{
+.landingNav{
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:0 1rem;
+  gap: 1rem;
+}
+.favorite{
+  color:var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: .2rem;
+  border: 1px solid var(--border-color);
+  padding: .2rem .5rem;
+  border-radius: 2rem;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: .2s;
+}
+.favorite:hover {
+  background-color: var(--main-color);
+}
+.favorite span{
+  color: grey;
+}
+.favorite.exist span{
+  color: gold;
+}
+.favorite p{
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.search{
+  width: 50%;
   max-width: 20rem;
-  margin: 0 auto;
   border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
   border-radius: .2rem;
