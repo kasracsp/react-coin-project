@@ -23,8 +23,8 @@
   text-decoration: none;
   gap: .2rem;
   border: 1px solid var(--border-color);
-  padding: .2rem .5rem;
-  border-radius: 2rem;
+  padding: .15rem 1rem 0.15rem 0.5rem;
+  border-radius: .2rem;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: .2s;

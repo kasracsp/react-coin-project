@@ -7,7 +7,6 @@ const initialState={
 }
 
 const reducer=(state,action)=>{
-  console.log(state.fav)
   switch (action.type) {
     case 'SET_INIT':
       return{

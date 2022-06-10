@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 //context
 import { FavoritesContext } from '../context/FavoritesContextProvider';
+import { CoinsContext } from '../context/CoinsContextProvider';
 
 //components
 import Coin from './Coin'
@@ -11,11 +12,12 @@ import CoinTitle from './CoinTitle'
 import ReactPaginate from 'react-paginate';
 import Loading from '../shared/Loading';
 
-const Landing = ({coins}) => {
+const Landing = () => {
   const [search,setSearch]=useState('')
   const {state}=useContext(FavoritesContext)
+  const {coinsState}=useContext(CoinsContext)
 
-  const filteredCoins=coins.filter(item=>item.name.toLowerCase().includes(search.toLowerCase().trim()))
+  const filteredCoins=coinsState.coins.filter(item=>item.name.toLowerCase().includes(search.toLowerCase().trim()))
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -26,7 +28,7 @@ const Landing = ({coins}) => {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(filteredCoins.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(filteredCoins.length / itemsPerPage));
-  },[itemOffset, itemsPerPage,coins,search]);
+  },[itemOffset, itemsPerPage,coinsState,search]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % filteredCoins.length;
@@ -48,7 +50,8 @@ const Landing = ({coins}) => {
         </Link>
       </div>
       <div className={styles.coinsWrapper}>
-        {coins.length?
+        {coinsState.loading?
+          <Loading />:
           <div className={styles.coins}>
             {currentItems.length>0 && <CoinTitle />}
             {currentItems.map(item=><Coin key={item.id}
@@ -81,9 +84,9 @@ const Landing = ({coins}) => {
               activeLinkClassName={styles.pagActive}
             />
           }
-          </div>:
-          <Loading />
+          </div>
         }
+        {coinsState.error && <h2>{coinsState.error}</h2>}
       </div>
     </div>
   )

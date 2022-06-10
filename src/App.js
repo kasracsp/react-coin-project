@@ -1,9 +1,9 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { getCoin } from './services/api'
 
 //context
 import FavoritesContextProvider from './context/FavoritesContextProvider'
+import CoinsContextProvider from './context/CoinsContextProvider'
 
 //components
 import Navbar from './shared/Navbar'
@@ -15,35 +15,27 @@ import Favorites from './components/Favorites'
 export const DarkModeContext=React.createContext()
 
 const App = () => {
-  const [coins,setCoins]=useState([])
-
   const [darkmode,setDarkmode]=useState(false)
   const changeDarkMode=()=>{
     setDarkmode(!darkmode)
   }
 
-  useEffect(()=>{
-    const fetchCoins=async ()=>{
-      const data=await getCoin()
-      setCoins(data)
-    }
-    fetchCoins().catch(error=>console.log(error))
-  },[])
-
   return (
-      <div className='app' id={darkmode ? 'darkMode' : ''}>
-        <FavoritesContextProvider>
-          <DarkModeContext.Provider value={{darkmode,changeDarkMode}}>
+    <div className='app' id={darkmode ? 'darkMode' : ''}>
+      <DarkModeContext.Provider value={{darkmode,changeDarkMode}}> 
+        <CoinsContextProvider>
+          <FavoritesContextProvider>
             <Navbar />
             <Routes>
               <Route path='/Converter' element={<Converter />} />
-              <Route path='/favorites' element={<Favorites coins={coins}/>} />
-              <Route path='/' element={<Landing coins={coins}/>} />
+              <Route path='/favorites' element={<Favorites/>} />
+              <Route path='/' element={<Landing/>} />
               <Route path='/*' element={<Navigate to='/' />} />
             </Routes>
-          </DarkModeContext.Provider>
-        </FavoritesContextProvider>
-      </div>
+          </FavoritesContextProvider>
+        </CoinsContextProvider>
+      </DarkModeContext.Provider>
+    </div>
   )
 }
 
