@@ -1,11 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import styles from './CustomSelector.module.css'
 
 const CustomSelector = ({currency,selectedCurrency,onChangeCurrency}) => {
   const [showList,setShowList]=useState(false)
   const [search,setSearch]=useState('')
+  const searchRef=useRef()
 
   const filteredCoins=currency.filter(item=>item.toLowerCase().includes(search.toLowerCase().trim()))
+
+  useEffect(()=>{
+    const handler=(event)=>{
+      if(searchRef.current && !searchRef.current.contains(event.target)){
+        setShowList(false)
+      }
+    }
+
+    document.addEventListener('mousedown',handler)
+
+    return ()=>{
+      document.removeEventListener('mousedown',handler)
+    }
+  })
 
   const clickHandler=(e)=>{
     setSearch('')
@@ -14,7 +29,7 @@ const CustomSelector = ({currency,selectedCurrency,onChangeCurrency}) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={searchRef}>
       <div className={styles.title} onClick={()=>setShowList(!showList)}>
         <p>{selectedCurrency}</p>
         <span className="material-icons">
